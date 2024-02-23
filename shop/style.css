@@ -1,0 +1,76 @@
+#filters {
+  border: 2px solid white;
+}
+.type2{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.price-input {
+  float: left;
+}
+.input-text {
+  width: 150px;
+}
+#goods {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.single-goods {
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 10%;
+  width: 300px;
+  height: 400px;
+  float: left;
+  text-align: center;
+  margin: 10px;
+  color: white;
+  padding: 10px;
+}
+.single-goods img {
+  width: 250px;
+  border: 4px solid white;
+}
+
+.bar {
+  background-color: black;
+  color: white;
+  /* width: 100%; */
+  padding: 0 10px 0 10px;
+  border: 2px solid white;
+}
+.bar-content {
+  background-color: black;
+  color: #fff;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+.bar-left {
+  display: flex;
+  gap: 10px;
+}
+.bar-right {
+  display: flex;
+  gap: 10px;
+  padding-right: 10px;
+}
+body {
+  background-image: url('https://cdnn21.img.ria.ru/images/07e7/05/0c/1871227916_0:245:3072:1973_1920x0_80_0_0_dcd717773ba62356a1a8fa8da3fb88b8.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  box-sizing: border-box;
+}
+.logotip{
+  font-size: 20px;
+}
+.up{
+  background-color: black;
+  color: white;
+}
