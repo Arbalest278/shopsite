@@ -7,9 +7,13 @@
 </head>
 <body>
     <div class="container">
+        <!--Заголовок--> 
         <h1 class="mb-5">Регистрация</h1>
 
-        <form id="form1">
+        <!--Форма регистрации--> 
+        <form id="reg_form">
+
+            <!--Первый блок div--> 
             <div class="form-group">
                 <label> Логин
                     <input type="text" class="form-control" name="login">
@@ -18,29 +22,31 @@
                     <input type="text" class="form-control" name="surname">
                 </label>
                 <label> Имя
-                    <input type="text" class="form-control" name="names">
+                    <input type="text" class="form-control" name="name">
                 </label>
                 <label> Отчество
-                    <input type="text" class="form-control" name="firstname">
+                    <input type="text" class="form-control" name="second_name">
                 </label>
             </div>
+
+            <!--Второй блок div--> 
             <div class="form-group">
                 <label> Почта
-                    <input type="email" class="form-control" name="email">
+                    <input type="email" required class="form-control" name="email">
                 </label>
                 <label> Номер телефона
                     <input type="tel" class="form-control" name="phone">
                 </label>
                 <label> Пароль
-                    <input type="password" class="form-control" name="password">
+                    <input type="password" required class="form-control" name="password">
                 </label>
                 <label> Повтор пароля
-                    <input type="password" class="form-control" name="double_password">
+                    <input type="password" required class="form-control" name="double_password">
                 </label>
             </div>
-            <input type="submit"></input>
+            <button type="submit">Регистрация</button>
         </form>
     </div>
-    <script src="register.js"></script>
+    <script src="reg.js"></script>
 </body>
 </html>

@@ -9,26 +9,32 @@
   </head>
 
   <body>
+    <!--Шапка главной страницы--> 
     <div class="bar">
       <div class="bar-content">
+
+      <!--Левый блок div--> 
        <div class="bar-left">
-           <div class="logotip">SpaceShipShop</div>
-        
+          <div class="logotip">SpaceShipShop</div>
        </div>
-       
+
+      <!--Правый блок div--> 
        <div class="bar-right">
           <div>
             <input class="input-text" type="text"
               value="" id="poisk"/>
           </div>
-          <a href="./register.html">
-            Авторизация
+          <a href="../reg/register.html">
+            Регистрация
           </a>
        </div>
       </div>
     </div>
 
+    <!--Фильтр товаров--> 
     <div id="filters" class="up">
+
+      <!--Фильтр товаров по орагнизации--> 
       <div class="organization"><h2>Организация</h2>
         <select id="organization">
           <option value="">-- Организация --</option>
@@ -39,6 +45,7 @@
         </select>     
       </div>
 
+      <!--Фильтр товаров по типу товара--> 
       <div class="type">
         <h2>Size</h2>
         <div id="type" class="type2">
@@ -50,6 +57,7 @@
         </div>
       </div>
 
+      <!--Фильтр товаров по стоимости--> 
       <div class="price">
         <h2>Price</h2>
         <div class="type2">
@@ -75,10 +83,12 @@
 
   
     <div class="goods" id="goods"></div>
- 
+    
+    <!--Низ сайта--> 
     <div class="bar">
-      
       <div class="bar-content">
+
+        <!--Левый блок div--> 
         <div class="bar-left">
           <div>
             Связаться с нами
@@ -86,6 +96,8 @@
             <div>SpaceShipShop@gmail.com</div>
           </div>
         </div>
+
+        <!--Правый блок div--> 
         <div class="bar-right">
           <div>
             Наши партнеры
@@ -95,7 +107,6 @@
           </div>
         </div>
       </div>
-
     </div>
 
     <script src="script_cards.js"></script>
