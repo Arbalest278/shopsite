@@ -18,8 +18,7 @@ form.addEventListener('submit', function(event) {
         }
     });
 
-    const jsonData = JSON.stringify(formData); // Преобразуем объект в JSON строку
-    console.log('Данные из формы в формате JSON:', jsonData);
-    localStorage.setItem('user', JSON.stringify(jsonData)); // Сохраняем JSON в localStorage
+    let jsonData = JSON.stringify(formData); // Преобразуем объект в JSON строку
+    localStorage.setItem('user', jsonData); // Сохраняем в localStorage
     window.location.href = '../authorization/authorization.html';
 });

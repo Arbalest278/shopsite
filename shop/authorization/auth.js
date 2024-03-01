@@ -17,16 +17,24 @@ form.addEventListener('submit', function(event) {
         }
     });
 
-    const jsonData = JSON.stringify(formData);
-    const user = JSON.parse(localStorage.getItem("user"));
-    console.log('Данные из формы:', jsonData);
-    console.log('Данные из localStorage:', user);
-    if(user.login == jsonData.login && user.password == jsonData.password)
+    let user = JSON.parse(localStorage.getItem("user")); //Преобразовываем данные из localStorage в объект
+
+    if(user.login == formData.login && user.password == formData.password) //Проверяем данные из формы с данными из localStorage
     {
-        
+        alert('Вход');
     }
-    else
+    else //В случае несоотвествия данных из формы с данными из localStorage
     {
-        alert("Invalid password or login");
+        fetch('../database/accounts.json') //Вытаскиваем данные из файла accounts.json
+        .then(response => response.json())
+        .then(user => {
+            for(let i = 0; i < user.length; i++){
+            if(formData.login == user[i].login && formData.password == user[i].password) {
+                alert('Победа');
+                return;
+            }
+        } //Пробегаемся циклом по данным файла accounts.json
+        alert('Неверный логин или пароль!'); //При полном несоотвествии
+        })
     }
 });
