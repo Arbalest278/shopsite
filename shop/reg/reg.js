@@ -19,6 +19,6 @@ form.addEventListener('submit', function(event) {
     });
 
     let jsonData = JSON.stringify(formData); // Преобразуем объект в JSON строку
-    localStorage.setItem('user', jsonData); // Сохраняем в localStorage
+    localStorage.setItem('users', jsonData); // Сохраняем в localStorage
     window.location.href = '../authorization/authorization.html';
 });

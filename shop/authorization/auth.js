@@ -17,9 +17,9 @@ form.addEventListener('submit', function(event) {
         }
     });
 
-    let user = JSON.parse(localStorage.getItem("user")); //Преобразовываем данные из localStorage в объект
+    let users = JSON.parse(localStorage.getItem("users")); //Преобразовываем данные из localStorage в объект
 
-    if(user.login == formData.login && user.password == formData.password) //Проверяем данные из формы с данными из localStorage
+    if(users.login == formData.login && users.password == formData.password) //Проверяем данные из формы с данными из localStorage
     {
         alert('Вход');
     }

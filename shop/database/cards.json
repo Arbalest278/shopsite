@@ -1,0 +1,34 @@
+[
+    {
+      "name" : "Скорпион",
+      "cost" : 1000,
+      "organization" : "ArbalestInc",
+      "image" : "./secret.jpg",
+      "description" : "",
+      "type": "corvett"
+    },
+    {
+      "name" : "Акула",
+      "cost" : 1200,
+      "organization" : "Pirate",
+      "image" : "",
+      "description" : "",
+      "type": "corvett"
+    },
+    {
+      "name" : "Орион",
+      "cost" : 1700,
+      "organization" : "NASA",
+      "image" : "",
+      "description" : "",
+      "type": "aircraftcarrier"
+    },
+    {
+      "name" : "Аврора",
+      "cost" : 2000,
+      "organization" : "Altera",
+      "image" : "https://pm1.aminoapps.com/6931/257bc424e08e51a59cc2cec8863af989ec814bd1r1-1024-512v2_uhq.jpg",
+      "description" : "Гигантское трансгосударство «Альтерра» запускает «Аврору» — космический корабль для установки фазовых врат",
+      "type": "superdreadnought"
+    }
+  ]
