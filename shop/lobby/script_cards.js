@@ -1,4 +1,6 @@
 const filters = document.querySelector('#filters');
+const logout = document.getElementById('logout');
+
 
 filters.addEventListener('input', filterGoods);
 
@@ -31,3 +33,12 @@ function outputGoods(goods) {
 fetch('../database/cards.json') //Вытаскиваем данные из файла cards.json
 .then(response => response.json())
 .then(user => {outputGoods(user)});
+
+window.onload = function(){
+  let uslog = localStorage.getItem("uslog");
+
+  if(uslog){
+    logout.textContent = uslog;
+    logout.href = "../profile/profile.html";
+  }
+};
