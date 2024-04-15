@@ -1,19 +1,34 @@
 const filters = document.querySelector('#filters');
 const logout = document.getElementById('logout');
 
+let data = [];
+
+window.onload = function(){
+  let uslog = localStorage.getItem("uslog");
+  
+  if(uslog){
+    logout.textContent = uslog;
+    logout.href = "../profile/profile.html";
+  }
+};
+
+let response = await fetch('../database/cards.json');
+if (response.ok) { 
+  data = await response.json();
+}
 
 filters.addEventListener('input', filterGoods);
 
 function filterGoods() {
   const
-  organization = filters.querySelector('#organization').value,
-    type = [...filters.querySelectorAll('#type input:checked')].map(n => n.value),
+    organization = filters.querySelector('#organization').value,
+    types = [...filters.querySelectorAll('#type input:checked')].map(n => n.value),
     priceMin = document.querySelector('#price-min').value,
     priceMax = document.querySelector('#price-max').value;
 
-  outputGoods(DATA.filter(n => (
+  outputGoods(data.filter(n => (
     (!organization || n.organization === organization) &&
-    (!type.length || type.includes(n.type)) &&
+    (!types.length || types.includes(n.type)) &&
     (!priceMin || priceMin <= n.cost) &&
     (!priceMax || priceMax >= n.cost)
   )));
@@ -23,22 +38,15 @@ function outputGoods(goods) {
   document.getElementById('goods').innerHTML = goods.map(n => `
     <div class="single-goods">
       <h3>${n.name}</h3>
-      <h4>${n.organization}</h4>
-      <img src="${n.image}">
-      <h4>${n.description}</h4>
-      <p>Цена: ${n.cost} <button class="add-to-cart" data-art="${n.name}">Купить</button></p>
+      <img width="250" height="120" src="${n.image}">
+      <p>Организация ${n.organization}</p>
+      <p>Тип корабля: ${n.type}</p>
+      <p>Цена: ${n.cost}</p>
+      <div></div>
+      <a class="batton"><span></span>Купить</a>
     </div>
   `).join('');
 }
-fetch('../database/cards.json') //Вытаскиваем данные из файла cards.json
-.then(response => response.json())
-.then(user => {outputGoods(user)});
 
-window.onload = function(){
-  let uslog = localStorage.getItem("uslog");
+  outputGoods(data);
 
-  if(uslog){
-    logout.textContent = uslog;
-    logout.href = "../profile/profile.html";
-  }
-};

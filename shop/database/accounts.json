@@ -16,5 +16,14 @@
         "login": "Arba",
         "password": "12345",
         "phone": "89991112344"
-    }    
+    },
+    {
+        "surname": "Телятник",
+        "name": "Снежана",
+        "firstname": "Андреевна",
+        "email": "arba@gmail.com",
+        "login": "Yoki",
+        "password": "12345",
+        "phone": "89991112344"
+    }      
 ]

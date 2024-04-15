@@ -1,32 +1,38 @@
 const prof = document.getElementById('prof_form');
+const logout = document.getElementById('logout');
 
 window.onload = function(){
     let users = JSON.parse(localStorage.getItem("users"));
     let uslog = localStorage.getItem("uslog");
+    let list = document.querySelectorAll('form > div');
+    console.log(list);
+    let arr =Array.from(list);
 
     if(uslog){
         if(uslog==users.login){
-            prof.querySelectorAll('div').forEach(input => {
-                const name = prof_form.name;
-                const value = prof_form.value;
-        
-                // Добавляем данные в объект formData
-                if (name) {
-                    name = (name + " " + users[name])
-                }
-            });
-        }
-    else{
-      fetch('../database/accounts.json') //Вытаскиваем данные из файла accounts.json
-        .then(response => response.json())
-        .then(user => {
-            for(let i = 0; i < user.length; i++){
-            if(uslog == user[i].login) {
-              
+            for (const item of arr) {
+                 item.textContent = (item.textContent + " " + users[item.getAttribute("id")])
             }
-        } //Пробегаемся циклом по данным файла accounts.json
-        })
+        }
+        else{
+        fetch('../database/accounts.json') //Вытаскиваем данные из файла accounts.json
+            .then(response => response.json())
+            .then(user => {
+                for(let i = 0; i < user.length; i++){
+                if(uslog == user[i].login) {
+                    console.log(user[i]);
+                    console.log(arr)
+                    for (const item of arr) {
+                        const namval = item.getAttribute("id");
+                        item.textContent = item.textContent + " " + user[i][namval];
+                    }
+                }
+                } //Пробегаемся циклом по данным файла accounts.json
+            })
     }
     }
 };
 
+logout.addEventListener('click', e => {
+    localStorage.setItem("uslog", "");
+});
