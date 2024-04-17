@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../lobby/style_index.css" />
-    <title>Корзина</title>
+    <link rel="stylesheet" href="detail.css" />
+    <title>Подробнее</title>
 </head>
 <body>
     <!--Шапка главной страницы--> 
@@ -20,6 +21,13 @@
   
         <!--Правый блок div--> 
          <div class="bar-right">
+            <div>
+              <input class="input-text" type="text"
+                value="" id="poisk"/>
+            </div>
+            <a id="bak" class="batton" href="../login/logining.html"><span></span>
+                Корзина
+              </a>
             <a id="logout" class="batton" href="../login/logining.html"><span></span>
               Войти
             </a>
@@ -27,11 +35,13 @@
         </div>
       </div>
 
-    <div>
-        <section>
-            <div class="goods" id="goods"></div>
-        </section>
-    </div>
+    <form id="tov">
+        <img width="250" height="120" id="img" src="">
+        <div class="text" id="name">Имя:</div>
+        <div class="text" id="organization">Организация:</div>
+        <div class="text" id="type">Тип:</div>
+        <div class="text" id="description">Описание:</div>
+    </form>
 
     <!--Низ сайта--> 
     <div class="bar bar-down">
@@ -58,6 +68,6 @@
         </div>
       </div>
 
-    <script src="basket.js" type="module"></script>
+    <script src="detail.js" type="module"></script>
 </body>
 </html>

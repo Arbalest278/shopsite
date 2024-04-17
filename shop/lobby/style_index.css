@@ -27,7 +27,7 @@
   border-bottom: 4px solid #919191;
   border-radius: 10%;
   width: 300px;
-  height: 400px;
+  height: 450px;
   float: left;
   text-align: center;
   margin: 10px;
@@ -64,7 +64,7 @@
   padding-right: 10px;
 }
 body {
-  background-color: #170B0B;
+  background-color: #002325;
   background-repeat: no-repeat;
   background-size: cover;
   margin: 0;
@@ -74,7 +74,7 @@ body {
   font-size: 20px;
 }
 .up{
-  background-color: #170B0B;
+  background-color: #002325;
   color: white;
 }
 

@@ -1,5 +1,6 @@
 const prof = document.getElementById('prof_form');
 const logout = document.getElementById('logout');
+const sell = document.getElementById('sell');
 
 window.onload = function(){
     let users = JSON.parse(localStorage.getItem("users"));
@@ -7,6 +8,8 @@ window.onload = function(){
     let list = document.querySelectorAll('form > div');
     console.log(list);
     let arr =Array.from(list);
+    let score = localStorage.getItem("score");
+    sell.textContent = (sell.textContent + " " + score/25 +"%")
 
     if(uslog){
         if(uslog==users.login){

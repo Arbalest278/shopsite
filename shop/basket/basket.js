@@ -1,10 +1,7 @@
-let card = {
-    // 'sdsfsd' : 2,
-    // 'dslvlkk2' : 2,
-}
-
 let uslog = localStorage.getItem("uslog");
 let data = JSON.parse(localStorage.getItem(uslog));
+const sell = document.getElementById('sell');
+let score = localStorage.getItem("score");
 
 window.onload = function(){
     if(uslog){
@@ -22,7 +19,10 @@ function outputGoods(goods) {
           <p>Организация ${n.organization}</p>
           <p>Тип корабля: ${n.type}</p>
           <p>Количество: ${n.quantity}</p>
-          <p>Цена: ${n.cost*n.quantity}</p>
+          <button class="button-primary plus" data-id="${n.dataid}"> + </button>
+          <button class="button-primary minus" data-id="${n.dataid}"> - </button>
+          <p>Цена без скидки: ${n.cost*n.quantity}</p>
+          <p>Цена со скидкой: ${n.cost*n.quantity - (score/25)*((n.cost*n.quantity)/100)}</p>
           <div></div>
         </div>
       `).join('');
@@ -43,25 +43,25 @@ document.onclick = event => {
 
 //Увеличение кол-во товара
 const plusFunction = id => {
-    card[id]++;
+    data[id].quantity++;
     renderCard();
 }
 
 //Уменьшение кол-во товара
 const minusFunction = id => {
-    if(card[id]-1 == 0){
+    if(data[id].quantity-1 == 0){
         deleteFunction(id);
         return true;
     }
-    card[id]--;
+    data[id].quantity--;
     renderCard();
 }
 
 const renderCard = () =>{
-    console.log(card);
+    outputGoods(data);
 }
 
 const deleteFunction = id => {
-    delete card[id];
+    delete data[id];
     renderCard();
 }
