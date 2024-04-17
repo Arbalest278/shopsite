@@ -1,14 +1,16 @@
 const filters = document.querySelector('#filters');
 const logout = document.getElementById('logout');
+const bak = document.getElementById('bak');
 
 let data = [];
+let uslog = localStorage.getItem("uslog");
+let dataconf = [];
 
 window.onload = function(){
-  let uslog = localStorage.getItem("uslog");
-  
   if(uslog){
     logout.textContent = uslog;
     logout.href = "../profile/profile.html";
+    bak.href = "../basket/basket.html"
   }
 };
 
@@ -43,10 +45,45 @@ function outputGoods(goods) {
       <p>Тип корабля: ${n.type}</p>
       <p>Цена: ${n.cost}</p>
       <div></div>
-      <a class="batton"><span></span>Купить</a>
+      <btn class="batton btn-pr basket" data-id="${n.dataid}">Купить<span></span></btn>
     </div>
   `).join('');
 }
 
   outputGoods(data);
 
+document.onclick = event => {
+    if(event.target.classList.contains('basket')){
+      sending(event.target.dataset.id);
+    }
+}
+
+const sending = id => {
+  if (localStorage.getItem(uslog) == null){
+    dataconf = JSON.parse(localStorage.getItem(uslog));
+    dataconf =[data[id]];
+    console.log("Создана ячейка");
+  }
+  else{
+    var check = true;
+    console.log("Найдена ячейка ячейка");
+    dataconf = JSON.parse(localStorage.getItem(uslog));
+    for(let i = 0; i != dataconf.length; i++){
+      if(dataconf[i].name == data[id].name){
+        console.log("Равны");
+        dataconf[i].quantity++;
+        console.log(dataconf[i].quantity);
+        check = false;
+        break;
+      }
+    }
+    if(check==true){
+      let info = [data[id]];
+      console.log(info);
+      dataconf.push(...info);
+    }
+  }
+  
+  let jsonData = JSON.stringify(dataconf); // Преобразуем объект в JSON строку
+  localStorage.setItem(uslog, jsonData); // Сохраняем в localStorage
+}
