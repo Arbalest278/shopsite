@@ -2,5 +2,5 @@
 	path = SpaceGame
 	url = git://github.com/Arbalest278/SpaceGame.git
 [submodule "SpaceGame"]
-	path = SpaceGame
+	path = shop/SpaceGame
 	url = https://github.com/Arbalest278/SpaceGame.git
