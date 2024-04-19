@@ -35,6 +35,7 @@ outputGoods(data);
 document.onclick = event => {
     if(event.target.classList.contains('plus')){
         plusFunction(event.target.dataset.id);
+
     }
     else if(event.target.classList.contains('minus')){
         minusFunction(event.target.dataset.id);
@@ -43,18 +44,29 @@ document.onclick = event => {
 
 //Увеличение кол-во товара
 const plusFunction = id => {
-    data[id].quantity++;
-    renderCard();
+    console.log(id);
+    for(let i = 0; i != data.length; i++){
+        if(data[i].dataid == id){
+            data[i].quantity++;
+            renderCard();
+          break;
+        }
+    }
 }
 
 //Уменьшение кол-во товара
 const minusFunction = id => {
-    if(data[id].quantity-1 == 0){
-        deleteFunction(id);
-        return true;
+    for(let i = 0; i != data.length; i++){
+        if(data[i].dataid == id){
+            if(data[i].quantity-1 == 0){
+                deleteFunction(id);
+                return true;
+            }
+            data[i].quantity--;
+            renderCard();
+          break;
+        }
     }
-    data[id].quantity--;
-    renderCard();
 }
 
 const renderCard = () =>{
@@ -62,6 +74,15 @@ const renderCard = () =>{
 }
 
 const deleteFunction = id => {
-    delete data[id];
-    renderCard();
+    
+    for(let i = 0; i != data.length; i++){
+        if(data[i].dataid == id){
+            data.splice(id-1, 1);
+            console.log(data);
+            let jsonData = JSON.stringify(data); // Преобразуем объект в JSON строку
+            localStorage.setItem(uslog, jsonData);
+            renderCard();
+          break;
+        }
+    }
 }

@@ -75,6 +75,8 @@ document.onclick = event => {
 //Добавление товара в корзину
 const sending = id => {
   //Проверка на наличие данных корзины пользователя
+  console.log(id);
+  
   if (localStorage.getItem(uslog) == null){
     dataconf = JSON.parse(localStorage.getItem(uslog));
     dataconf =[data[id]];

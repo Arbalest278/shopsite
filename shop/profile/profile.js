@@ -1,6 +1,7 @@
 const prof = document.getElementById('prof_form');
 const logout = document.getElementById('logout');
 const sell = document.getElementById('sell');
+const bak = document.getElementById('bak');
 
 window.onload = function(){
     let users = JSON.parse(localStorage.getItem("users"));
@@ -10,6 +11,7 @@ window.onload = function(){
     let arr =Array.from(list);
     let score = localStorage.getItem("score");
     sell.textContent = (sell.textContent + " " + score/25 +"%")
+    bak.href = "../basket/basket.html"
 
     if(uslog){
         if(uslog==users.login){
@@ -38,4 +40,5 @@ window.onload = function(){
 
 logout.addEventListener('click', e => {
     localStorage.setItem("uslog", "");
+    localStorage.setItem("score", "0");
 });
